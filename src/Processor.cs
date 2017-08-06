@@ -18,7 +18,11 @@ namespace WebOptimizer.Markdown
         /// </summary>
         public Processor()
         {
-            _options = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+            _options = new MarkdownPipelineBuilder()
+                .UseDiagrams()
+                .UseAdvancedExtensions()
+                .UseYamlFrontMatter()
+                .Build();
         }
 
         /// <summary>
@@ -32,13 +36,14 @@ namespace WebOptimizer.Markdown
         /// </summary>
         public Task ExecuteAsync(IAssetContext context)
         {
-            var pipeline = (IAssetPipeline)context.HttpContext.RequestServices.GetService(typeof(IAssetPipeline));
-            var content = new Dictionary<string, byte[]>();
-                
+            var content = new Dictionary<string, byte[]>();                
 
             foreach (string route in context.Content.Keys)
             {
-                var result = Markdig.Markdown.ToHtml(context.Content[route].AsString(), _options);
+                string input = context.Content[route].AsString()
+                    .Trim(new char[] { '\uFEFF', '\u200B' }); // Removes the BOM
+
+                var result = Markdig.Markdown.ToHtml(input, _options);
 
                 content[route] = result.AsByteArray();
             }

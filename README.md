@@ -5,6 +5,7 @@
 
 This package compiles markdown files into HTML by hooking into the [LigerShark.WebOptimizer](https://github.com/ligershark/WebOptimizer) pipeline.
 
+## Usage
 
 You can reference any markdown file directly in the browser and a compiled and HTML document will be served. To set that up, do this:
 
