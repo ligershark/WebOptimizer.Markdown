@@ -1,6 +1,7 @@
 # A Markdown compiler for ASP.NET Core
 
 [![Build status](https://ci.appveyor.com/api/projects/status/6mx0r3dvvje0h529?svg=true)](https://ci.appveyor.com/project/madskristensen/weboptimizer-markdown)
+[![NuGet](https://img.shields.io/nuget/dt/LigerShark.WebOptimizer.Markdown.svg)](https://nuget.org/packages/LigerShark.WebOptimizer.Markdown/)
 
 This package compiles markdown files into HTML by hooking into the [LigerShark.WebOptimizer](https://github.com/ligershark/WebOptimizer) pipeline.
 
