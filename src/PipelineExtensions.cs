@@ -41,16 +41,16 @@ namespace WebOptimizer.Markdown
         {
             return pipeline.AddBundle(route, "text/html; charset=UTF-8", sourceFiles)
                            .CompileMarkdown()
-                           .Concatinate();
+                           .Concatenate();
         }
 
         /// <summary>
         /// Compiles markdown files into HTML and makes them servable in the browser.
         /// </summary>
         /// <param name="pipeline">The asset pipeline.</param>
-        public static IAsset CompileMarkdownFiles(this IAssetPipeline pipeline)
+        public static IEnumerable<IAsset> CompileMarkdownFiles(this IAssetPipeline pipeline)
         {
-            return pipeline.AddFileExtension(".md", "text/html; charset=UTF-8")
+            return pipeline.AddFiles("text/html; charset=UTF-8", "**/*.md")
                            .CompileMarkdown();
         }
 
@@ -61,17 +61,8 @@ namespace WebOptimizer.Markdown
         /// <param name="sourceFiles">A list of relative file names of the sources to compile.</param>
         public static IEnumerable<IAsset> CompileMarkdownFiles(this IAssetPipeline pipeline, params string[] sourceFiles)
         {
-            var list = new List<IAsset>();
-
-            foreach (string file in sourceFiles)
-            {
-                IAsset asset = pipeline.AddBundle(file, "text/html; charset=UTF-8", new[] { file })
-                         .CompileMarkdown();
-
-                list.Add(asset);
-            }
-
-            return list;
+            return pipeline.AddFiles("text/html; charset=UTF-8", sourceFiles)
+                           .CompileMarkdown();
         }
     }
 }
