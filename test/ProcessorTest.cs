@@ -21,7 +21,7 @@ namespace WebOptimizer.Markdown.Test
             context.Setup(s => s.HttpContext.RequestServices.GetService(typeof(IAssetPipeline)))
                    .Returns(pipeline.Object);
 
-            await processor.ExecuteAsync(context.Object);
+            await processor.ExecuteAsync(context.Object, null);
             var result = context.Object.Content.First().Value;
 
             Assert.Equal("<h1 id=\"foo\">foo</h1>\n", result.AsString());

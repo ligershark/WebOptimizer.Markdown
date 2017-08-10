@@ -21,7 +21,7 @@ namespace Sample
             services.AddWebOptimizer(pipeline =>
             {
                 pipeline.AddMarkdownBundle("/", "index.md");
-                pipeline.CompileMarkdownFiles("**/a.md");
+                pipeline.CompileMarkdownFiles("**/*.md");
             });
         } 
 

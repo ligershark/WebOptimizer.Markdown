@@ -34,7 +34,7 @@ namespace WebOptimizer.Markdown
         /// <summary>
         /// Executes the processor on the specified configuration.
         /// </summary>
-        public Task ExecuteAsync(IAssetContext context)
+        public Task ExecuteAsync(IAssetContext context, WebOptimizerOptions options)
         {
             var content = new Dictionary<string, byte[]>();                
 
