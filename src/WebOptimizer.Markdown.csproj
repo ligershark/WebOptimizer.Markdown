@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.115-beta" />
+    <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.121-beta" />
     <PackageReference Include="Markdig" Version="0.13.0" />
   </ItemGroup>
 
