@@ -11,7 +11,7 @@ namespace WebOptimizer.Markdown.Test
         [Fact]
         public async Task Compile_Success()
         {
-            var processor = new Processor();
+            var processor = new MarkdownProcessor();
             var pipeline = new Mock<IAssetPipeline>().SetupAllProperties();
             var context = new Mock<IAssetContext>().SetupAllProperties();
             context.Object.Content = new Dictionary<string, byte[]> {

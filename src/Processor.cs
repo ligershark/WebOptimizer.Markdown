@@ -9,14 +9,14 @@ namespace WebOptimizer.Markdown
     /// Compiles Sass files
     /// </summary>
     /// <seealso cref="WebOptimizer.IProcessor" />
-    public class Processor : IProcessor
+    public class MarkdownProcessor : IProcessor
     {
         private MarkdownPipeline _options;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Processor"/> class.
         /// </summary>
-        public Processor()
+        public MarkdownProcessor()
         {
             _options = new MarkdownPipelineBuilder()
                 .UseDiagrams()

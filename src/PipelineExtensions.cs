@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using WebOptimizer;
+using WebOptimizer.Markdown;
 
-namespace WebOptimizer.Markdown
+namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
     /// Extensions methods for registrating the Sass compiler on the Asset Pipeline.
@@ -12,7 +14,7 @@ namespace WebOptimizer.Markdown
         /// </summary>
         public static IAsset CompileMarkdown(this IAsset asset)
         {
-            asset.Processors.Add(new Processor());
+            asset.Processors.Add(new MarkdownProcessor());
             return asset;
         }
 

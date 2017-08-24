@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -15,7 +16,7 @@ namespace WebOptimizer.Markdown.Test
             asset.CompileMarkdown();
 
             Assert.Equal(1, asset.Processors.Count);
-            Assert.True(asset.Processors.Any(p => p is Processor));
+            Assert.True(asset.Processors.Any(p => p is MarkdownProcessor));
         }
 
         [Fact]
@@ -28,7 +29,7 @@ namespace WebOptimizer.Markdown.Test
             foreach (IAsset asset in assets)
             {
                 Assert.Equal(1, asset.Processors.Count);
-                Assert.True(asset.Processors.Any(p => p is Processor));
+                Assert.True(asset.Processors.Any(p => p is MarkdownProcessor));
             }
         }
 
